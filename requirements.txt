@@ -1,0 +1,2 @@
+matplotlib==3.4
+SimpleITK==2.2.1

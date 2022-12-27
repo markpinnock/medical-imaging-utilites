@@ -1,0 +1,12 @@
+name: utilities-env
+channels:
+  - defaults
+  - simpleitk
+dependencies:
+  - pip=22.2.2
+  - python=3.8
+  - matplotlib=3.4
+  - setuptools
+  - simpleitk=2.2.1
+  - pip:
+    - -e .
