@@ -13,23 +13,20 @@ ifeq ($(OS), Windows_NT)
 	python -m venv utilities-env
 else
 	python3 -m venv utilities-env
-	VENV_PATH = $(shell pwd $(/utilities/bin/))
 endif
 
 install_pip_req:
 ifeq ($(OS), Windows_NT)
 	utilities-env\Scripts\python -m pip install -r requirements.txt
 else
-	python3 -m venv utilities
-	/utilities-env/bin/python3 -m pip3 install -r requirements.txt
+	utilities-env/bin/python3 -m pip install -r requirements.txt
 endif
 
 local_pip:
 ifeq ($(OS), Windows_NT)
 	utilities-env\Scripts\python -m pip install -e .
 else
-	python3 -m venv utilities
-	/utilities-env/bin/python3 -m pip3 install -e .
+	utilities-env/bin/python3 -m pip install -e .
 endif
 
 pip_env: create_pip_env install_pip_req local_pip ## Create pip virtual environment and install package locally
